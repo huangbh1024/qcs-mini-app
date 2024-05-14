@@ -2,16 +2,18 @@ import { useState, useEffect, ReactNode } from 'react';
 import { getSystemInfoSync, getMenuButtonBoundingClientRect, navigateBack } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
 import backIcon from '@/assets/icons/back.png';
+import classNames from 'classnames';
 import styles from './index.module.scss';
 
 export interface Props {
   title?: ReactNode;
   position?: 'static' | 'fixed';
   back?: boolean;
+  center?: boolean;
 }
 
 export const Navbar = (props: Props) => {
-  const { title = '', position = 'static', back = false } = props;
+  const { title = '', position = 'static', back = false, center = false } = props;
   const [statusBarHeight, setStatusBarHeight] = useState(20);
   const [navBarHeight, setNavBarHeight] = useState(40);
   const initStatusBarHeight = () => {
@@ -39,11 +41,14 @@ export const Navbar = (props: Props) => {
         {/* 占位 */}
         <View style={{ height: statusBarHeight + 'px' }}></View>
         {/* 实际标题栏 */}
-        <View className={styles['navbar-title']} style={{ height: navBarHeight + 'px' }}>
+        <View
+          className={classNames([styles['navbar-title'], !back && center && '!justify-center'])}
+          style={{ height: navBarHeight + 'px' }}
+        >
           {back && <Image src={backIcon} className={styles['back-icon']} onClick={handleClickBack} />}
           <View>{title}</View>
           {/* 为了让title居中显示 */}
-          <View className={styles['back-icon']}></View>
+          {back && <View className={styles['back-icon']}></View>}
         </View>
       </View>
       {/* 垫片 (解决 navbar fixed后，下面的元素顶到最上面的问题) */}
