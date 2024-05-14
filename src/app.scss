@@ -2,6 +2,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+:root {
+  --nutui-popup-border-radius: 12px;
+}
+
 page {
   font-family: Source Han Sans CN;
   width: 100%;
