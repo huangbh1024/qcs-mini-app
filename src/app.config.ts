@@ -1,5 +1,11 @@
 export default defineAppConfig({
-  pages: ['pages/index/index', 'pages/message/index', 'pages/mine/index', 'pages/information/index'],
+  pages: [
+    'pages/index/index', // 首页
+    'pages/message/index', // 消息页
+    'pages/mine/index', // 个人页
+    'pages/information/index', // 健康资讯页
+    'pages/queueQuery/index', // 队列查询页
+  ],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
