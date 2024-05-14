@@ -3,12 +3,25 @@ import { Navbar } from '@/components/Navbar';
 import { SwitchPatient } from '@/components/SwitchPatient';
 import { ExhibitCard } from '@/components/ExhibitCard';
 import classNames from 'classnames';
+import { navigateTo } from '@tarojs/taro';
+import { useState } from 'react';
+import { CheckInDialog } from './components/CheckInDialog';
 
 export default () => {
   const mockData = [
     { id: 1, deptName: '普通内科', doctorName: '刘医生', date: '2024-02-11 上午', canCheck: true },
     { id: 2, deptName: '普通内科', doctorName: '刘医生', date: '2024-02-11 上午', canCheck: false },
   ];
+  const [visibleDialog, setVisibleDialog] = useState(false);
+  const onClickCheckIn = (item: (typeof mockData)[number]) => {
+    if (!item.canCheck) return;
+    setVisibleDialog(true);
+  };
+  const onClickConfirm = () => {
+    navigateTo({ url: `/pages/checkInStatus/index?type=${Math.random() < 0.5 ? 'fail' : 'success'}` });
+    setVisibleDialog(false);
+  };
+
   return (
     <View>
       <Navbar title='在线签到' back />
@@ -26,6 +39,7 @@ export default () => {
                   'w-full h-[36px] rounded-[4px] flex justify-center items-center text-[16px] font-medium',
                   item.canCheck ? 'bg-[#3DBEDF]' : 'bg-[#3DBEDF]/10',
                 ])}
+                onClick={() => onClickCheckIn(item)}
               >
                 <Text className={classNames([item.canCheck ? 'text-[#FFFFFF]' : 'text-[#3DBEDF]'])}>
                   {item.canCheck ? '立即签到' : '未到开放签到时间'}
@@ -40,6 +54,7 @@ export default () => {
           />
         ))}
       </View>
+      <CheckInDialog visible={visibleDialog} onCancel={() => setVisibleDialog(false)} onConfirm={onClickConfirm} />
     </View>
   );
 };

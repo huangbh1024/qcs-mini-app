@@ -4,6 +4,13 @@
 
 :root {
   --nutui-popup-border-radius: 12px;
+  --nutui-dialog-header-font-size: 18px;
+  --nutui-dialog-header-font-weight: 500;
+  --nutui-dialog-padding: 20px 18px 12px 18px;
+  --nutui-dialog-width: 316px;
+  --nutui-dialog-content-margin: 10px 0 20px 0;
+  --nutui-dialog-min-height: 171px;
+  --nutui-dialog-content-max-height: 400px;
 }
 
 page {
@@ -11,6 +18,9 @@ page {
   width: 100%;
   background: linear-gradient(180deg, #d3f2ff 0%, #f7fafb 45%);
   background-attachment: fixed;
+  .nut-dialog-content {
+    overflow: hidden; // TODO: 实机overflow: auto滚动条会一直存在，目前没有遇到超出高度的弹窗，暂时先设置为hidden
+  }
 }
 view {
   box-sizing: border-box;

@@ -7,6 +7,7 @@ export default defineAppConfig({
     'pages/queueQuery/index', // 队列查询页
     'pages/checkIn/index', // 在线签到
     'pages/reportQuery/index', // 报告查询
+    'pages/checkInStatus/index', // 签到状态
   ],
   window: {
     backgroundTextStyle: 'light',
