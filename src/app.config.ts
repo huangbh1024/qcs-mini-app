@@ -5,6 +5,7 @@ export default defineAppConfig({
     'pages/mine/index', // 个人页
     'pages/information/index', // 健康资讯页
     'pages/queueQuery/index', // 队列查询页
+    'pages/checkIn/index', // 在线签到
   ],
   window: {
     backgroundTextStyle: 'light',
