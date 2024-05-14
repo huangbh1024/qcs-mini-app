@@ -1,4 +1,5 @@
 import path from 'path';
+import { UnifiedWebpackPluginV5 } from 'weapp-tailwindcss/webpack';
 
 const config = {
   projectName: 'qcs-mini-app',
@@ -30,11 +31,33 @@ const config = {
     resource: path.resolve(__dirname, '..', 'src/assets/styles/variables.scss'),
   },
   mini: {
+    webpackChain(chain, webpack) {
+      chain.merge({
+        plugin: {
+          install: {
+            plugin: UnifiedWebpackPluginV5,
+            args: [
+              {
+                appType: 'taro',
+              },
+            ],
+          },
+        },
+      });
+    },
     postcss: {
       pxtransform: {
         enable: true,
         config: {
           selectorBlackList: ['nut-'],
+        },
+      },
+      htmltransform: {
+        enable: true,
+        // 设置成 false 表示 不去除 * 相关的选择器区块
+        // 假如开启这个配置，它会把 tailwindcss 整个 css var 的区域块直接去除掉
+        config: {
+          removeCursorStyle: false,
         },
       },
       url: {
