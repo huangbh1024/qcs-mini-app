@@ -1,5 +1,5 @@
 import { View, Image, Text } from '@tarojs/components';
-import successIcon from '@/assets/icons/successStatu.png';
+import successIcon from '@/assets/icons/successStatus.png';
 import failIcon from '@/assets/icons/failStatus.png';
 import classNames from 'classnames';
 import { getCurrentInstance, switchTab, navigateTo } from '@tarojs/taro';
