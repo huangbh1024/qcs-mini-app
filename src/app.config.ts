@@ -6,6 +6,7 @@ export default defineAppConfig({
     'pages/information/index', // 健康资讯页
     'pages/queueQuery/index', // 队列查询页
     'pages/checkIn/index', // 在线签到
+    'pages/reportQuery/index', // 报告查询
   ],
   window: {
     backgroundTextStyle: 'light',
