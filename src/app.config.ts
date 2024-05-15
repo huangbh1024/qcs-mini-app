@@ -13,6 +13,7 @@ export default defineAppConfig({
     'pages/patientManagement/index', // 就诊人管理
     'pages/addPatient/index', // 添加就诊人
     'pages/feedback/index', // 意见反馈
+    'pages/satisfactionSurvey/index', // 满意度调查
   ],
   window: {
     backgroundTextStyle: 'light',
