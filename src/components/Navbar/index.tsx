@@ -10,10 +10,11 @@ export interface Props {
   position?: 'static' | 'fixed';
   back?: boolean;
   center?: boolean;
+  onHeightChange?: (height: number) => void;
 }
 
 export const Navbar = (props: Props) => {
-  const { title = '', position = 'static', back = false, center = false } = props;
+  const { title = '', position = 'static', back = false, center = false, onHeightChange } = props;
   const [statusBarHeight, setStatusBarHeight] = useState(20);
   const [navBarHeight, setNavBarHeight] = useState(40);
   const initStatusBarHeight = () => {
@@ -35,6 +36,11 @@ export const Navbar = (props: Props) => {
   const handleClickBack = () => {
     navigateBack();
   };
+
+  // 垫片高度
+  useEffect(() => {
+    if (onHeightChange) onHeightChange(statusBarHeight + navBarHeight);
+  }, [statusBarHeight, navBarHeight]);
   return (
     <>
       <View className={styles['navbar']} style={{ position }}>
