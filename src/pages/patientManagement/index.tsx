@@ -1,12 +1,16 @@
 import { ExhibitCard } from '@/components/ExhibitCard';
 import { Navbar } from '@/components/Navbar';
 import { Text, View, Radio } from '@tarojs/components';
+import { Dialog } from '@/components/Dialog';
+import { useState } from 'react';
 
 export default () => {
   const mockData = [
     { id: 1, name: '肖俊鑫', phone: '133****2424', idNum: '23235235235235', cardNo: '3523523525', isDefault: true },
     { id: 2, name: '肖俊鑫', phone: '133****2424', idNum: '23235235235235', cardNo: '3523523525' },
   ];
+
+  const [visibleDialog, setVisibleDialog] = useState(false);
 
   return (
     <View>
@@ -32,7 +36,10 @@ export default () => {
                     {item.isDefault ? '默认就诊人' : '设为默认'}
                   </Text>
                 </View>
-                <View className='flex items-center justify-center rounded-[30px] px-[24px] py-[4px] bg-[#FF4D4D]'>
+                <View
+                  className='flex items-center justify-center rounded-[30px] px-[24px] py-[4px] bg-[#FF4D4D]'
+                  onClick={() => setVisibleDialog(true)}
+                >
                   <Text className='text-[15px] text-white font-[400]'>解绑</Text>
                 </View>
               </View>
@@ -44,7 +51,20 @@ export default () => {
             ]}
           />
         ))}
+        <View className='fixed w-[calc(100%-32px)] h-[43px] bg-[#3DBEDF] rounded-[4px] bottom-[16px] flex items-center justify-center'>
+          <Text className='text-[15px] text-white font-[400]'>添加就诊人</Text>
+        </View>
       </View>
+      <Dialog
+        visible={visibleDialog}
+        onCancel={() => setVisibleDialog(false)}
+        onConfirm={() => setVisibleDialog(false)}
+        content={
+          <View className='w-full flex justify-center'>
+            <Text className='text-[#6B7C93] text-[15px] font-[400] text-center'>确认解绑该就诊人？</Text>
+          </View>
+        }
+      />
     </View>
   );
 };
