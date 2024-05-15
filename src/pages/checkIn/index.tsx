@@ -5,7 +5,7 @@ import { ExhibitCard } from '@/components/ExhibitCard';
 import classNames from 'classnames';
 import { navigateTo } from '@tarojs/taro';
 import { useState } from 'react';
-import { CheckInDialog } from './components/CheckInDialog';
+import { Dialog } from '@/components/Dialog';
 
 export default () => {
   const mockData = [
@@ -54,7 +54,16 @@ export default () => {
           />
         ))}
       </View>
-      <CheckInDialog visible={visibleDialog} onCancel={() => setVisibleDialog(false)} onConfirm={onClickConfirm} />
+      <Dialog
+        visible={visibleDialog}
+        onCancel={() => setVisibleDialog(false)}
+        onConfirm={onClickConfirm}
+        content={
+          <Text className='text-[#6B7C93] text-[15px] font-[400]'>
+            请确认是否已到达科室位置，提前签到可能导致过号。是否继续签到？
+          </Text>
+        }
+      />
     </View>
   );
 };

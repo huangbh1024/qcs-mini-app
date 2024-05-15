@@ -1,15 +1,17 @@
-import { Dialog } from '@nutui/nutui-react-taro';
+import { Dialog as NutDialog } from '@nutui/nutui-react-taro';
 import { Text, View } from '@tarojs/components';
+import { ReactNode } from 'react';
 
 export interface Props {
   visible: boolean;
+  content?: ReactNode;
   onCancel?: () => void;
   onConfirm?: () => void;
 }
-export const CheckInDialog = (props: Props) => {
-  const { visible, onCancel = () => {}, onConfirm = () => {} } = props;
+export const Dialog = (props: Props) => {
+  const { visible, onCancel = () => {}, onConfirm = () => {}, content = '' } = props;
   return (
-    <Dialog
+    <NutDialog
       title='提示'
       visible={visible}
       footer={
@@ -29,9 +31,7 @@ export const CheckInDialog = (props: Props) => {
         </View>
       }
     >
-      <Text className='text-[#6B7C93] text-[15px] font-[400]'>
-        请确认是否已到达科室位置，提前签到可能导致过号。是否继续签到？
-      </Text>
-    </Dialog>
+      {content}
+    </NutDialog>
   );
 };
