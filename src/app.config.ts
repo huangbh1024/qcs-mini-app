@@ -11,6 +11,7 @@ export default defineAppConfig({
     'pages/medicalRecord/index', // 就诊记录
     'pages/appointmentRecord/index', // 预约记录
     'pages/patientManagement/index', // 就诊人管理
+    'pages/addPatient/index', // 添加就诊人
   ],
   window: {
     backgroundTextStyle: 'light',
