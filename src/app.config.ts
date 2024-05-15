@@ -9,6 +9,7 @@ export default defineAppConfig({
     'pages/reportQuery/index', // 报告查询
     'pages/checkInStatus/index', // 签到状态
     'pages/medicalRecord/index', // 就诊记录
+    'pages/appointmentRecord/index', // 预约记录
   ],
   window: {
     backgroundTextStyle: 'light',
