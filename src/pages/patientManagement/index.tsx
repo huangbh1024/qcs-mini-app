@@ -3,6 +3,7 @@ import { Navbar } from '@/components/Navbar';
 import { Text, View, Radio } from '@tarojs/components';
 import { Dialog } from '@/components/Dialog';
 import { useState } from 'react';
+import { navigateTo } from '@tarojs/taro';
 
 export default () => {
   const mockData = [
@@ -51,7 +52,12 @@ export default () => {
             ]}
           />
         ))}
-        <View className='fixed w-[calc(100%-32px)] h-[43px] bg-[#3DBEDF] rounded-[4px] bottom-[16px] flex items-center justify-center'>
+        <View
+          className='fixed w-[calc(100%-32px)] h-[43px] bg-[#3DBEDF] rounded-[4px] bottom-[16px] flex items-center justify-center'
+          onClick={() => {
+            navigateTo({ url: '/pages/addPatient/index' });
+          }}
+        >
           <Text className='text-[15px] text-white font-[400]'>添加就诊人</Text>
         </View>
       </View>
