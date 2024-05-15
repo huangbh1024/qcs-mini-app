@@ -10,6 +10,7 @@ export default defineAppConfig({
     'pages/checkInStatus/index', // 签到状态
     'pages/medicalRecord/index', // 就诊记录
     'pages/appointmentRecord/index', // 预约记录
+    'pages/patientManagement/index', // 就诊人管理
   ],
   window: {
     backgroundTextStyle: 'light',
