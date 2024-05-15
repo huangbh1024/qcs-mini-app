@@ -14,6 +14,7 @@ export default defineAppConfig({
     'pages/addPatient/index', // 添加就诊人
     'pages/feedback/index', // 意见反馈
     'pages/satisfactionSurvey/index', // 满意度调查
+    'pages/favoritesList/index', // 我的收藏
   ],
   window: {
     backgroundTextStyle: 'light',
