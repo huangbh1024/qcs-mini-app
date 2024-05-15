@@ -8,6 +8,7 @@ export default defineAppConfig({
     'pages/checkIn/index', // 在线签到
     'pages/reportQuery/index', // 报告查询
     'pages/checkInStatus/index', // 签到状态
+    'pages/medicalRecord/index', // 就诊记录
   ],
   window: {
     backgroundTextStyle: 'light',
