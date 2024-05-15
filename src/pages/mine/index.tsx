@@ -12,9 +12,9 @@ export default () => {
   };
 
   return (
-    <View className='px-[16px] h-screen'>
+    <View className='h-screen'>
       <Navbar title='我的' center onHeightChange={onNavbarHeightChange} />
-      <View className='pt-[8px] flex flex-col' style={{ height: `calc(100% - ${navbarHeight}px)` }}>
+      <View className='px-[16px] pt-[8px] flex flex-col' style={{ height: `calc(100% - ${navbarHeight}px)` }}>
         <UserInfo />
         <ManageCard />
         <ActionCard />
